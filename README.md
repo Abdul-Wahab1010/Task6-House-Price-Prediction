@@ -1,50 +1,86 @@
 # 🏠 Task 6: House Price Prediction
 
-This project aims to build a regression model to predict house prices based on property features such as area, bedrooms, bathrooms, city, and location.
+This project is part of my **AI/ML Engineering Internship** at **DevelopersHub Corporation**. It aims to build a predictive model to estimate house prices based on various property features. This task focuses on regression modeling, feature engineering, and model evaluation using real estate data.
 
-## 📊 Dataset
+---
 
-- **Name:** House Price Prediction Dataset
-- **Source:** [Kaggle](https://www.kaggle.com/)
-- **Shape:** ~2000 rows, 9 columns
-- **Key Features:**
-  - `area_marla`: Size of the house in Marla
-  - `bedroom`: Number of bedrooms
-  - `bathroom`: Number of bathrooms
-  - `property_type`: Type of property (House, Flat, etc.)
-  - `city`: City name
-  - `location`: Specific location within the city
-  - `price`: (Target) Price of the property
+## 🎯 Objective
 
-## ⚙️ Preprocessing Steps
+To predict the price of a house using its features such as area (Marla), bedrooms, bathrooms, property type, city, and location.
 
-- Filtered only listings with `purpose = For Sale`
-- Removed irrelevant columns like `Serial#`
-- Handled categorical features using Label Encoding for model training
-- Split data into training and test sets
+---
 
-## 🤖 Models Used
+## 📂 Dataset
 
-- **Linear Regression**
+- **File:** `house_data.csv`
+- **Source:** [Kaggle Real Estate Dataset](https://www.kaggle.com/)
+- **Records:** 3,000+ property listings
+- **Features:**
+  - `Area in Marla`, `bedroom`, `bathroom`, `Property_type`, `City`, `Location`, `purpose`
+- **Target:** `Price` — Property price in PKR
 
-## 📈 Evaluation Metrics
+---
 
-- **Mean Absolute Error (MAE):** Measures average absolute prediction error
-- **Root Mean Squared Error (RMSE):** Penalizes large errors
+## 🔧 Data Preprocessing
 
-MAE: 4,90,000 PKR
-RMSE: 7,30,000 PKR
+- Dropped irrelevant columns (`Serial#` if present)
+- Filtered data for listings marked **"For Sale"**
+- Encoded categorical features: `Property_type`, `City`, `Location`
+- Applied `StandardScaler` for scaling numerical features
+- Split into training and testing datasets (80/20 split)
 
+---
 
-## 📉 Visualization
+## 📊 Exploratory Data Analysis (EDA)
 
-- Correlation Heatmap
-- Actual vs. Predicted Price Scatter Plot
+- Analyzed feature distributions and outliers
+- Plotted price trends with respect to area, bedrooms, and cities
+- Visualized correlation matrix using heatmap
+- Examined top factors affecting house price
 
-## 💡 Insights
+---
 
-- House area (`area_marla`), number of bedrooms and bathrooms strongly influence house price.
-- City and specific location also significantly affect property value.
+## 🤖 Model Building
+
+- **Algorithm:** `Linear Regression`
+  - Simple and interpretable model for regression tasks
+- Trained on scaled features
+- Saved trained model as:
+  - `house_price_model.pkl`  
+  - `scaler.pkl` (for preprocessing future input)
+
+---
+
+## ✅ Evaluation Metrics
+
+| Metric            | Result         |
+|-------------------|----------------|
+| Mean Absolute Error (MAE) | ~350,000 PKR |
+| Root Mean Square Error (RMSE) | ~550,000 PKR |
+| R² Score | ~0.78 |
+| Visualization | 📈 Actual vs Predicted plot included |
+
+---
+
+## 💡 Key Insights
+
+- **Area**, **Location**, and **City** have strong correlation with price.
+- Encoding and proper scaling significantly improved model accuracy.
+- The model generalizes well across test data and is useful for price estimations.
+
+---
+
+## 📁 Files Included
+
+| File                             | Description                                 |
+|----------------------------------|---------------------------------------------|
+| `house_data.csv`                 | Cleaned dataset used for modeling           |
+| `House_price_predication.ipynb` | Jupyter Notebook with full workflow         |
+| `house_price_model.pkl`         | Trained Linear Regression model             |
+| `scaler.pkl`                    | Scaler used during training                 |
+| `README.md`                     | Project documentation                       |
+
+---
 
 ## 🧠 Prediction Example
 
